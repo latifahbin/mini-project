@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+    table, th, td {
+      border:1px solid black;
+      border-collapse: collapse;
+    }
+      tr:nth-child(even) {
+        background-color: #eee;
+      }
+      tr:nth-child(odd){
+        background-color: #fff;
+      }
+    </style>
+</head>
+<body>
+<table style="width:100%">
+  <caption> The weather in {{ city }} </caption>
+
+            <tr>
+               <th> The current temperature (C) is : </th>
+               <td> {{ temp }} degrees. </td>
+            </tr>
+            <tr>
+              <th>The temperature min (C) is : </th>
+              <td>{{temp_min}} degrees.</td>
+            </tr>
+            <tr>
+              <th>The temperature max (C) is : </th>
+              <td> {{temp_max}} degress.</td>
+            </tr>
+            <tr>
+              <th>feeling like: </th>
+              <td>{{temp_feel}} degrees </td>
+            </tr>
+            <tr>
+              <th>Humidity is : </th>
+              <td>{{hum}}</td>
+            </tr>
+
+      </table>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</body>
+</html>

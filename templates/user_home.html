@@ -1,0 +1,57 @@
+<!doctype html5>
+<html>
+<style>
+h2.blue-text {
+  color:blue;
+}
+</style>
+
+<head>
+  <title>{{ username.title() }} - Home</title>
+</head>
+<body>
+
+  <h1>Hello {{username.title()}}</h1>
+
+  <h2>To View current the Weather of a place, enter the city name </h2>
+<form action = "/result" method="POST">
+    <input name="text">
+    <input type="submit">
+</form>
+<p>Your list contains the list of cities that you want to view it's weather, you can add, delete, and view your list </p>
+<p><h2> View your list of cities </h2>
+<a href={{ url_for('my_list', username=username) }}">click here</a></p>
+
+
+<p><h2> View your list temperatures </h2>
+<a href={{ url_for('temperatures', username=username) }}">click here</a></p>
+
+<h2><abbr title=""></abbr>Add to your list (please enter city name)</h2>
+<form action = "/edit_mylist/{{username.title()}}" method="POST">
+  <input name="text">
+  <input type="submit">
+</form>
+
+
+<h2>delete from your list (please enter city name)</h2>
+<form action = "/delete_mylist/{{username.title()}}" method="POST">
+  <input name="text">
+  <input type="submit">
+</form>
+
+
+  <p><a href="{{ url_for('logout', username=username) }}">Logout</a></p>
+
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <h2 class="blue-text" color=blue;>{{ message }}</h2>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+</body>
+</html>

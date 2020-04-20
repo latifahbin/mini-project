@@ -1,0 +1,29 @@
+<!doctype html5>
+<html>
+<style>
+h3.red-text {
+  color:red;
+}
+</style>
+<head>
+  <title>Sign Up</title>
+</head>
+<body>
+  <h2>please sign up in order to use the weather service</h2>
+  <h2>Sign Up</h2>
+  <form id="signup" action="{{ url_for('signup')}}" method="post">
+    Username :  <input type="text" id="username" name="username" />
+    Password : <input type="password" id="password" name="password" />
+    <input type="submit" id="submit" text="Signup" />
+  </form>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for message in messages %}
+        <h3 class="red-text" color="red";>{{ message }}</h3>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+</body>
+</html>
